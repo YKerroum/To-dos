@@ -58,6 +58,13 @@ setUpdate = (updatedTitle, id) => {
   })
 }
 
+componentDidUpdate(prevProps, prevState) {
+  if(prevState.todos !== this.state.todos) {
+    const temp = JSON.stringify(this.state.todos)
+    localStorage.setItem("todos", temp)
+  }
+}
+
   render() {
   return (
     <div className="container">
